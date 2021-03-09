@@ -7,19 +7,19 @@ namespace ariel {
 	string convert2hat(int x)
 {
 	int hat = x/10000000;
-	if(hat<1 || hat>4) throw std::out_of_range{"x contains incorrect digits!"};
+	if(hat<1 || hat>4) throw std::out_of_range{"x contains incorrect digits!"}; // check if x contains incorrect digits
 	switch (hat)
 	{
-	case 1: 
+	case 1: //first hat
 		return " _===_";
 		break;
-	case 2:
+	case 2: //second hat
 		return "  ___\n .....";	
 		break;
-	case 3:
+	case 3: // third hat
 		return "   _  \n  /_\\ "; // should finish in one slash
 		break;
-	case 4:
+	case 4: // fourth hat
 		return "  ___\n (_*_)";
 		break;
 	default:
@@ -33,16 +33,16 @@ string convert2nose_mouth(int x)
 
 	switch (nose_mouth)
 	{
-	case 1: 
+	case 1: //first nose_mouth
 		return ",";
 		break;
-	case 2:
+	case 2: // second nose_mouth
 		return ".";	
 		break;
-	case 3:
+	case 3: // third nose_mouth
 		return "_";
 		break;
-	case 4:
+	case 4: // fourth nose_mouth
 		return " ";
 		break;
 	default:
@@ -55,16 +55,16 @@ string convert2left_eye(int x)
 	if(left_eye<1 || left_eye>4) throw std::out_of_range{"x contains incorrect digits!"};
 	switch (left_eye)
 	{
-	case 1: 
+	case 1: // first left_eye
 		return ".";
 		break;
-	case 2:
+	case 2: // second left_eye
 		return "o";	
 		break;
-	case 3:
+	case 3: // third left_eye
 		return "O";
 		break;
-	case 4:
+	case 4: // fourth left_eye
 		return "-";
 		break;
 	default:
@@ -78,16 +78,16 @@ string convert2right_eye(int x)
 	if(right_eye<1 || right_eye>4) throw std::out_of_range{"x contains incorrect digits!"};
 	switch (right_eye)
 	{
-	case 1: 
+	case 1: // first right_eye
 		return ".";
 		break;
-	case 2:
+	case 2: // second right_eye
 		return "o";	
 		break;
-	case 3:
+	case 3: // third right_eye
 		return "O";
 		break;
-	case 4:
+	case 4: // fourth right_eye
 		return "-";
 		break;
 	default:
@@ -101,16 +101,16 @@ string convert2left_arm(int x)
 	if(left_arm<1 || left_arm>4) throw std::out_of_range{"x contains incorrect digits!"};
 	switch (left_arm)
 	{
-	case 1: 
+	case 1: // first left_arm
 		return "<";
 		break;
-	case 2:
+	case 2: // second left_arm
 		return "\\"; // should be one slash
 		break;
-	case 3:
+	case 3: // third left_arm
 		return "/";
 		break;
-	case 4:
+	case 4: // fourth left_arm
 		return " ";
 		break;
 	default:
@@ -124,16 +124,16 @@ string convert2right_arm(int x)
 	if(right_arm<1 || right_arm>4) throw std::out_of_range{"x contains incorrect digits!"};
 	switch (right_arm)
 	{
-	case 1: 
+	case 1: // first right_arm
 		return ">";
 		break;
-	case 2:
+	case 2: // second right_arm
 		return "/";	
 		break;
-	case 3:
+	case 3: // third right_arm
 		return "\\"; // should be one slash
 		break;
-	case 4:
+	case 4: // fourth right_arm
 		return " ";
 		break;
 	default:
@@ -147,16 +147,16 @@ string convert2torso(int x)
 	if(torso<1 || torso>4) throw std::out_of_range{"x contains incorrect digits!"};
 	switch (torso)
 	{
-	case 1: 
+	case 1: // first torso
 		return " : ";
 		break;
-	case 2:
+	case 2: // second torso
 		return "] [";	
 		break;
-	case 3:
+	case 3: // third torso
 		return "> <";
 		break;
-	case 4:
+	case 4: // fourth torso
 		return "   ";
 		break;
 	default:
@@ -170,16 +170,16 @@ string convert2base(int x)
 	if(base<1 || base>4) throw std::out_of_range{"x contains incorrect digits!"};
 	switch (base)
 	{
-	case 1: 
+	case 1: // first base
 		return " : ";
 		break;
-	case 2:
+	case 2: // second base
 		return "\" \"";	
 		break;
-	case 3:
+	case 3: // third base
 		return "___";
 		break;
-	case 4:
+	case 4: // fourth base
 		return "   ";
 		break;
 	default:
@@ -189,9 +189,10 @@ string convert2base(int x)
 }
 
 string snowman(int x) {
-	if(x<=0) throw std::out_of_range{"x must be positive!"};
-	if(x/10000000 ==0 || x/100000000!=0) throw std::out_of_range{"incorrent length for x!"};
+	if(x<=0) throw std::out_of_range{"x must be positive!"}; // check if x is negative or 0
+	if(x/10000000 ==0 || x/100000000!=0) throw std::out_of_range{"incorrent length for x!"}; // check if x length incorrect
 	string snowman="";
+	// use functions to build the snow man items
 		string hat= convert2hat(x);
 		string nose_mouth= convert2nose_mouth(x);
 		string left_eye= convert2left_eye(x);
